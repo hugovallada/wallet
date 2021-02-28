@@ -1,15 +1,15 @@
 package com.github.hugovallada.wallet;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
 
 @SpringBootTest
-@ActiveProfiles("test")
-class WalletApplicationTests {
+public class HelloWorld {
 
     @Test
-    void contextLoads() {
+    public void testHelloWorld() {
+        Assertions.assertEquals(1, 1);
     }
 
 }
