@@ -14,6 +14,7 @@ public class WalletRepsoitoryTest {
 
     @Autowired
     WalletRepository repository;
+    
 
     @Test
     public void testSave() {
@@ -25,4 +26,6 @@ public class WalletRepsoitoryTest {
 
         Assertions.assertNotNull(savedWallet);
     }
+
+
 }
