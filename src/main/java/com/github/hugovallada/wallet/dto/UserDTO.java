@@ -11,10 +11,10 @@ public class UserDTO {
 
     private Long id;
 
-    @Email(message = "Email inválido")
+    @Email(message = "Email Invalido")
     private String email;
 
-    @Length(min = 3, max = 50, message = "Nome com tamanho inválido (3 - 50)")
+    @Length(min = 3, max = 50, message = "Nome com tamanho invalido (3 - 50)")
     private String name;
 
     @NotNull
