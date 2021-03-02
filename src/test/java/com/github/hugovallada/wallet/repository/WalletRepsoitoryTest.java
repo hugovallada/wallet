@@ -1,6 +1,7 @@
 package com.github.hugovallada.wallet.repository;
 
 import com.github.hugovallada.wallet.entity.Wallet;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,11 @@ public class WalletRepsoitoryTest {
 
     @Autowired
     WalletRepository repository;
-    
+
+    @AfterEach
+    void tearDown() {
+        repository.deleteAll();
+    }
 
     @Test
     public void testSave() {
