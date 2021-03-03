@@ -6,22 +6,24 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
 
 import java.math.BigDecimal;
 import java.util.Date;
 
 @SpringBootTest
-@ActiveProfiles("test")
 public class WalletItemRepositoryTest {
 
     private static final Date DATE = new Date();
-    private static final String TYPE = "ENTRADA";
+    private static final String TYPE = "EN";
     private static final String DESCRIPTION = "Conta de Luz";
     private static final BigDecimal VALUE = BigDecimal.valueOf(65);
 
     @Autowired
     private WalletItemRepository repository;
+
+    @Autowired
+    private WalletRepository walletRepository;
+
 
     @Test
     public void testSave() {
@@ -30,11 +32,17 @@ public class WalletItemRepositoryTest {
         w.setName("WalletTest");
         w.setValue(BigDecimal.valueOf(500));
 
+        walletRepository.save(w);
+
         WalletItem walletItem = new WalletItem(null, DATE, w, DESCRIPTION, TYPE, VALUE);
 
         WalletItem response = repository.save(walletItem);
 
         Assertions.assertNotNull(response);
+        Assertions.assertEquals(response.getWallet(), w);
+        Assertions.assertEquals(response.getDescription(), DESCRIPTION);
+        Assertions.assertEquals(response.getType(), TYPE);
+        Assertions.assertEquals(response.getValue(), VALUE);
     }
 
 }
