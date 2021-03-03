@@ -1,6 +1,7 @@
 package com.github.hugovallada.wallet.repository;
 
 import com.github.hugovallada.wallet.entity.Wallet;
+import com.github.hugovallada.wallet.entity.WalletItem;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ public class WalletItemRepositoryTest {
         w.setName("WalletTest");
         w.setValue(BigDecimal.valueOf(500));
 
-        WalletItem walletItem = new WalletItem(w, DATE, TYPE, DESCRIPTION, VALUE);
+        WalletItem walletItem = new WalletItem(null, DATE, w, DESCRIPTION, TYPE, VALUE);
 
         WalletItem response = repository.save(walletItem);
 
