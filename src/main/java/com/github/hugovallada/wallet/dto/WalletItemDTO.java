@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -21,6 +22,7 @@ public class WalletItemDTO {
     private Date date;
 
     @NotNull(message = "Insira o tipo")
+    @Pattern(regexp = "^(ENTRADA|SAIDA)$", message = "O tipo aceita apenas ENTRADA ou SAIDA")
     private String type;
 
     @NotNull(message = "Insira uma descricao")

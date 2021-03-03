@@ -2,6 +2,7 @@ package com.github.hugovallada.wallet.repository;
 
 import com.github.hugovallada.wallet.entity.Wallet;
 import com.github.hugovallada.wallet.entity.WalletItem;
+import com.github.hugovallada.wallet.util.TypeEnum;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,7 @@ import java.util.Date;
 public class WalletItemRepositoryTest {
 
     private static final Date DATE = new Date();
-    private static final String TYPE = "EN";
+    private static final TypeEnum TYPE = TypeEnum.EN;
     private static final String DESCRIPTION = "Conta de Luz";
     private static final BigDecimal VALUE = BigDecimal.valueOf(65);
 

@@ -1,6 +1,7 @@
 package com.github.hugovallada.wallet.entity;
 
 
+import com.github.hugovallada.wallet.util.TypeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -32,7 +33,8 @@ public class WalletItem implements Serializable {
     private String description;
 
     @Column(nullable = false)
-    private String type;
+    @Enumerated(EnumType.STRING)
+    private TypeEnum type;
 
     @Column(nullable = false)
     private BigDecimal value;
